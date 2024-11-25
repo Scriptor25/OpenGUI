@@ -5,13 +5,14 @@
 #include <string>
 #include <vector>
 #include <GLFW/glfw3.h>
+#include <OpenGUI/Context.hpp>
+#include <OpenGUI/Layout.hpp>
 #include <OpenGUI/OpenGUI.hpp>
 
 namespace OpenGUI
 {
     class Application
     {
-    private:
         static void ErrorCallback(int error_code, const char* description);
 
     public:
@@ -22,9 +23,11 @@ namespace OpenGUI
         void Stop();
 
     protected:
+        unsigned CreateWindow(unsigned layout);
 
     private:
-        std::vector<std::string> m_Layouts;
+        std::vector<Layout> m_Layouts;
         GLFWwindow* m_Window;
+        Context m_Ctx;
     };
 }

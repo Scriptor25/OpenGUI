@@ -11,6 +11,7 @@ set(ONLY_LIBS ON)
 
 add_subdirectory("deps/glfw")
 add_subdirectory("deps/glew")
+add_subdirectory("deps/yaml")
 
 add_library(imgui STATIC
         "deps/imgui/imgui.cpp"
@@ -28,7 +29,7 @@ target_link_libraries(imgui PUBLIC glfw)
 file(GLOB_RECURSE sources "src/*.cpp" "include/*.hpp")
 add_library(opengui STATIC ${sources})
 target_include_directories(opengui PUBLIC "include")
-target_link_libraries(opengui PUBLIC imgui)
+target_link_libraries(opengui PUBLIC glfw libglew_static imgui yaml-cpp::yaml-cpp)
 
 file(GLOB_RECURSE example_sources "example/*.cpp" "example/*.hpp")
 add_executable(example ${example_sources})

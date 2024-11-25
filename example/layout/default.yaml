@@ -1,0 +1,44 @@
+- type: text
+  value: "Hello"
+- type: same-line
+- type: text
+  color: 0xff0000ff
+  value: "world!"
+- type: text
+  value: "This text is"
+- type: same-line
+- type: text
+  color: 0xff00ff00
+  value: "green."
+- type: input
+  label: "Name##1"
+  subtype: text
+  var: name
+  hint: "Please enter your name"
+- type: text
+  value: "Hello"
+- type: same-line
+- type: text
+  color: 0xffff9922
+  value: "$!"
+  args:
+    - type: var
+      value: name
+- type: tree
+  id: test-tree
+  label: "Test Tree"
+  elements:
+    - type: text
+      value: "This is a sub-element!"
+    - type: input
+      label: "Name##2"
+      subtype: text
+      var: name
+      hint: "This is synchronized with the input above!"
+    - type: tree
+      label: "Test Tree"
+      elements:
+        - type: text
+          value: "ABC"
+        - type: ref
+          id: test-tree

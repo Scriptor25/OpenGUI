@@ -3,6 +3,6 @@
 int main()
 {
     Example example({
-        "layout/default.gui"
+        "layout/default.yaml"
     });
 }
